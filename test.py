@@ -129,10 +129,10 @@ def main(
                 max_new_tokens=max_new_tokens,
             )
         s = generation_output.sequences[0]
-        output = tokenizer.decode(s)
+        # output = tokenizer.decode(s)
+        output = tokenizer.batch_decode(generation_output, skip_special_tokens=True, clean_up_tokenization_spaces=False)[0]
         # return prompter.get_response(output)
         print("Output: ", output)
-        print("Response: ", prompter.get_response(output))
         return output
     # Old testing code follows.
 
