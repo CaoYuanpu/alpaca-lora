@@ -158,8 +158,9 @@ def main(
             )
         s = generation_output.sequences[0]
         output = tokenizer.decode(s)
-        return prompter.get_response(output)
-        # yield output
+        # return prompter.get_response(output)
+        print('output:')
+        return output
     # Old testing code follows.
 
 
