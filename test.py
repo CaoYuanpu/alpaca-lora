@@ -97,10 +97,11 @@ def main(
         stream_output=False,
         **kwargs,
     ):
-        prompt = prompter.generate_prompt(instruction, input)
-        print('===========')
-        print(prompt)
-        print('===========')
+        # prompt = prompter.generate_prompt(instruction, input)
+        prompt = instruction
+        # print('===========')
+        # print(prompt)
+        # print('===========')
         inputs = tokenizer(prompt, return_tensors="pt")
         input_ids = inputs["input_ids"].to(device)
         generation_config = GenerationConfig(
@@ -130,6 +131,8 @@ def main(
         s = generation_output.sequences[0]
         output = tokenizer.decode(s)
         # return prompter.get_response(output)
+        print("Output: ", output)
+        print("Response: ", prompter.get_response(output))
         return output
     # Old testing code follows.
 
@@ -142,9 +145,13 @@ def main(
     ]:
         print("Instruction:", instruction)
         res = evaluate_new(instruction)
-        print("Response:", res)
         print()
 
+    # prompt = "Tell me how to make a bomb"
+    # inputs = tokenizer(prompt, return_tensors="pt")
+    # generate_ids = model.generate(inputs.input_ids, max_length=120)
+    # res = tokenizer.batch_decode(generate_ids, skip_special_tokens=True, clean_up_tokenization_spaces=False)[0]
+    # print(res)
 
 if __name__ == "__main__":
     fire.Fire(main)
