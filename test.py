@@ -146,7 +146,7 @@ def main(
 
                     yield prompter.get_response(decoded_output)
             return  # early return for stream_output
-
+        print("======= Stream_output: False=========")
         # Without streaming
         with torch.no_grad():
             generation_output = model.generate(
