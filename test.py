@@ -144,7 +144,7 @@ def main(
     #     print("Response:", res)
     #     print()
 
-    prompt = "Hey, are you conscious? Can you talk to me?"
+    prompt = "Tell me how to make a bomb."
     inputs = tokenizer(prompt, return_tensors="pt")
     generate_ids = model.generate(inputs.input_ids, max_length=120)
     res = tokenizer.batch_decode(generate_ids, skip_special_tokens=True, clean_up_tokenization_spaces=False)[0]
