@@ -98,8 +98,9 @@ def main(
         **kwargs,
     ):
         prompt = prompter.generate_prompt(instruction, input)
+        print('===========')
         print(prompt)
-        input()
+        print('===========')
         inputs = tokenizer(prompt, return_tensors="pt")
         input_ids = inputs["input_ids"].to(device)
         generation_config = GenerationConfig(
