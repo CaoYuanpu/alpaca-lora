@@ -64,6 +64,7 @@ def main(
             torch_dtype=torch.float16,
         )
     else:
+        print('Without loading lora weights')
         model = LlamaForCausalLM.from_pretrained(
             base_model, device_map={"": device}, low_cpu_mem_usage=True
         )
