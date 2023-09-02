@@ -97,6 +97,7 @@ def main(
         stream_output=False,
         **kwargs,
     ):
+        print("========Enter evaluate========")
         prompt = prompter.generate_prompt(instruction, input)
         inputs = tokenizer(prompt, return_tensors="pt")
         input_ids = inputs["input_ids"].to(device)
