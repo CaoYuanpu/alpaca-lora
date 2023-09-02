@@ -68,11 +68,11 @@ def main(
         model = LlamaForCausalLM.from_pretrained(
             base_model, device_map={"": device}, low_cpu_mem_usage=True
         )
-        model = PeftModel.from_pretrained(
-            model,
-            lora_weights,
-            device_map={"": device},
-        )
+        # model = PeftModel.from_pretrained(
+        #     model,
+        #     lora_weights,
+        #     device_map={"": device},
+        # )
 
     # unwind broken decapoda-research config
     model.config.pad_token_id = tokenizer.pad_token_id = 0  # unk
