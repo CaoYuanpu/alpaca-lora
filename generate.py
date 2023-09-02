@@ -22,6 +22,7 @@ try:
 except:  # noqa: E722
     pass
 
+device = "cpu"
 
 def main(
     load_8bit: bool = False,
