@@ -178,7 +178,8 @@ def main(
         "Count up from 1 to 500.",
     ]:
         print("Instruction:", instruction)
-        print("Response:", evaluate(instruction))
+        res = evaluate(instruction)
+        print("Response:", res)
         print()
 
 
